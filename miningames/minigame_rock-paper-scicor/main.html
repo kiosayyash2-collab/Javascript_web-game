@@ -1,0 +1,180 @@
+<!Doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First HTML Project</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="logic.js"></script>
+<style>
+  img {
+    width: 100px;
+    height: 99px;
+    border-radius: 1px;
+    float: left;
+    margin-bottom: 1px;
+  }
+
+  .square-style {
+    position: absolute;
+    top: 120px;
+    text-align: center;
+  }
+
+  .square-box {
+    background-color: lightgrey;
+    width: 100px;
+    border: 1px solid green;
+    padding: 15px;
+    outline: 12px;
+    margin: 20px;
+    text-align: center;
+  }
+
+ //font, color and shapes
+  .main-font {
+   font-family: Arial, Helvetica, sans-serif;
+   color: black;
+   font-size: medium;
+  }
+
+  .button-style {
+   border-radius: 40px;
+   border-width: 4px;
+   color: azure;
+  }
+
+ //animations
+  button-hover {
+    animation-duration: 20ms;
+  }
+
+  .computer-win-animation {
+    animation-duration: 20ms;  
+  }
+
+  .player-win-animation {
+   animation-duration: 20ms;  
+  }
+
+  .switching-animation {
+   animation-duration: 20ms;
+  }
+
+  .scale-up-center {
+	 -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	  animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  }
+
+  .blink-2 {
+	 -webkit-animation: blink-2 0.9s both;
+	 animation: blink-2 0.9s both;
+  }
+     
+</style>
+</head>
+<body>
+ <h1 style=".title-style";>Rock vs paper vs scicor</h1>
+ <h2 style="font-family: Arial, Helvetica, sans-serif; color: #f0dddd;">select you role</h2>
+
+ <div>
+     <div class="menu-box"; style=".square-box">
+      <h1></h1>
+      <img src="assets/Rock icon.jpg" alt="rock" width="500" height="600" id="Rock-button">
+      <img src="assets/Paper Icon.jpg" alt="papper" width="500" height="600" id="paper-button">
+      <img src="assets/scicor icon.jpg" alt="scicors" width="500" height="600"> 
+     </div>
+     <br>
+     <div>
+       <button id="rock-button" style="font-family: Arial, Helvetica, sans-serif; color:#7b5151;">rock</button>
+       <button id="paper-button" style="font-family: Arial, Helvetica, sans-serif; color: #7b5151;">papper</button>
+       <button id="scicor-button" style="font-family: Arial, Helvetica, sans-serif; color: #7b5151;">scicors</button>
+     </div>
+ </div>
+ <br>
+ <h1 id="myh1">result</h1>
+ <h2 id="myh2">result</h2>
+</body>
+<script>
+ // take the player choice
+   let player_choice; 
+
+  //rock choice
+  document.getElementById("rock-button").onclick = function(){
+    player_choice = "rock"
+  }
+  
+  //paper choice
+  document.getElementById("paper-button").onclick = function(){
+    player_choice = "paper"
+  }
+
+  //scicor choice
+  document.getElementById("scicor-button").onclick = function(){
+    player_choice = "scicor"
+    
+  }
+
+  //print user choice
+  console.log("player choice : ",player_choice)
+
+
+
+ //computer player logic
+ computer_choice_number = Math.floor(Math.random() * 3) + 1;
+
+ 
+    if(computer_choice_number == 1){
+     computer_choice == "rock";
+
+    }else if(computer_choice_number == 2){
+     computer_choice == "rock";
+
+    }else if(computer_choice_number == 3){
+     computer_choice == "rock";
+
+    }
+
+ //evaluate the result
+ document.getElementById("opponent").onanimationstart = function(){
+    //check for winner
+    let result;
+
+
+    if (player_choice == computer_choice){
+      result = "draw";
+    }
+
+    if(player_choice == 1 && computer_choice_number == 2) or (computer_choice_number == 1 && decicion == 2){
+     result ="papper";
+    }
+
+    if(player_choice == 1 && computer_choice_number == 3) or (computer_choice_number == 1 && decicion == 3){
+     result ="rock";
+    }
+
+    if(player_choice == 1 && computer_choice_number == 3) or (computer_choice_number == 1 && decicion == 3){
+     result ="scicor";
+    }
+
+
+    //output 
+    if(result == "draw"){
+     document.getElementById("myh1").textContent = `result : ${result}`;
+     document.getElementById("myh2").textContent = `"<== It's a tie! ==>"`;
+    }
+
+    if(result == player_choice){
+     document.getElementById("myh1").textContent = `result : ${result}`;
+     document.getElementById("myh2").textContent = `<== User wins! ==>`;
+  
+    }
+
+    if(result != player_choice){
+     document.getElementById("myh1").textContent = `result : ${result}`;
+     document.getElementById("myh2").textContent = `<== Computer wins! ==>`;
+    }
+
+    //ask to play again
+ }  
+</script>
+</Html> 
